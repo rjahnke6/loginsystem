@@ -1,9 +1,9 @@
 import csv
 #CREATE ACCOUNT FUNCTION
 def create():
-    firstn = input("What is your first name?")
-    lastn = input("What is your last name?")
-    dateofbirth = input("What is your date of birth?")
+    firstn = input("What is your first name?\n")
+    lastn = input("What is your last name?\n")
+    dateofbirth = input("What is your date of birth (MM/DD/YYYY?\n")
     i = 1
     while i == 1:
         file = open("userandpass.txt", "r")
@@ -60,14 +60,17 @@ def forgotpass():
 
 #ADMINTOOLS FUNCTION
 def admintools():
-    adminkeyinput = input("Input admin key:\n")
-    if adminkeyinput == '8945':
-        csvfile = open("userinfo.csv", "r")
-        csv_reader = csv.reader(csvfile)
-        for line in csv_reader:
-            print(line)
-        csvfile.close()
-        print('\n')
-    else:
-        print("ADMIN KEY WRONG! EXITING PROGRAM")
-        exit()
+    i = 1
+    while i == 1:
+        adminkeyinput = input("Input admin key:\n")
+        if adminkeyinput == '8945':
+            print('\n')
+            csvfile = open("userinfo.csv", "r")
+            csv_reader = csv.reader(csvfile)
+            for line in csv_reader:
+                print(line)
+            csvfile.close()
+            print('\n')
+            i = 2
+        else:
+            print("ADMIN KEY WRONG! TRY AGAIN!")
